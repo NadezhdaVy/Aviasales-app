@@ -1,0 +1,26 @@
+.PriceFilters {
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .button {
+    text-align: center;
+    font-size: 12px;
+    flex-grow: 2;
+    font-weight: 600;
+    height: 50px;
+    padding-top: 7px;
+    overflow: hidden;
+  }
+
+  [class~='ant-radio-button-checked'] {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  [class~='PriceFilters'] {
+    padding: 24px;
+  }
+}

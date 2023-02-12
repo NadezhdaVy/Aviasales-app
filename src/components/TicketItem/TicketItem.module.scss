@@ -1,0 +1,31 @@
+.TicketItem {
+  .head {
+    display: flex;
+    justify-content: space-between;
+
+    .head-price {
+      color: #2196f3;
+    }
+  }
+
+  [class~='ant-card-head'] {
+    border: none;
+    min-height: 0;
+    padding-top: 14px;
+    font-size: 1.5rem;
+  }
+
+  [class~='ant-card-body'] {
+    padding: 20px;
+  }
+
+  .description {
+    [class~='ant-descriptions-item-label']::after {
+      display: none;
+    }
+
+    [class~='ant-descriptions-row'] > th {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.App {
+  padding: 1.5em;
+  background-color: rgb(240, 245, 249);
+  max-width: 1330px;
+  margin: 0 auto;
+
+  .logo {
+    width: 80px;
+    height: 90px;
+    background-image: url(../../icons/Logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0.5em;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+
+  .order-col-first {
+    padding: 1em 1.5em;
+  }
+
+  .order-col-last {
+    padding-top: 1em;
+  }
+}
