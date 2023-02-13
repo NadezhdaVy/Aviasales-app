@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TiketsList from '../TicketsList'
-import PriceFilters from '../PriceFilters'
+import { PriceFilters } from '../Filters'
 
 import classes from './MainContent.module.scss'
 
