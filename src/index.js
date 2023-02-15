@@ -5,6 +5,9 @@ import { Provider } from 'react-redux'
 import store from './store'
 import './index.scss'
 import App from './components/App'
+import { fetchTickets } from './components/TicketsList/TicketsListSlice'
+
+store.dispatch(fetchTickets())
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

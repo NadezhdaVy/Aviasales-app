@@ -27,7 +27,7 @@
       }
 
       .check-input {
-        width: 0px;
+       visibility: hidden;
         position: absolute;
         cursor: pointer;
       }
@@ -37,8 +37,9 @@
         width: 20px;
         height: 20px;
         position: absolute;
-        right: 5px;
+        right: 15px;
         top: -2px;
+		  visibility: visible;
         background-image: url('../../icons/Checkbox.svg');
       }
 
