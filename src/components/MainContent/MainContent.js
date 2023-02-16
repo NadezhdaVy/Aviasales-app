@@ -11,7 +11,8 @@ export default function MainContent() {
   const dispatch = useDispatch()
   const ticketsState = useSelector((state) => state.tickets)
   const onClick = () => dispatch(showMoreTickets())
-  const className = ticketsState.tickets.length - 5 >= ticketsState.shownTickets ? classes.button : classes.hidden
+  const itemsLength = Object.keys(ticketsState.tickets).length
+  const className = itemsLength - 5 >= ticketsState.shownTickets ? classes.button : classes.hidden
 
   return (
     <div className={classes.MainContent}>

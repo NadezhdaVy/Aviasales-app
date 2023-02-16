@@ -14,17 +14,20 @@ export default class AviasalesService extends BaseService {
   }
 
   getTickets = async () => {
-    await this.getId()
+    if (!this.currId) {
+      await this.getId()
+    }
 
     const url = this.createUrl('tickets', [this.currId])
     const res = await fetch(url)
     if (!res.ok) {
+      if (res.status === 500) {
+        return this.getTickets()
+      }
       throw new Error('Something is wrong')
     }
     const body = res.json()
+
     return body
   }
 }
-
-const m = new AviasalesService()
-m.getTickets().then((res) => console.log(res))

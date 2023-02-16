@@ -1,0 +1,49 @@
+
+
+.Loader{
+	width: 130px;
+	margin: 0 auto;
+	margin-top: 15px;
+
+	h1{
+		position: relative;
+		margin: 5px;
+		
+		font-size: 1rem;
+		color: #FFFAF0;
+		-webkit-text-stroke: 1px #d6d6d5;
+		//text-transform: uppercase;
+		font-weight: 400;
+		letter-spacing: 2px;
+	}
+
+	h1::before{
+		content: attr(data-text);
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		color: #2196f3;
+		-webkit-text-stroke: 0 #d6d6d5;
+		border-right: 1px solid #f4f6f7;
+		overflow: hidden;
+		animation: cargarColor 2s linear alternate infinite;
+	}
+}
+
+
+
+
+
+@keyframes cargarColor{
+	0%{
+		 width: 0;
+	}
+
+	90%, 100%{
+		 width: 100%;
+	}
+}
+
+

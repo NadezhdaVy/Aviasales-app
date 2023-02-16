@@ -4,10 +4,15 @@ import AviasalesService from '../../services/AviasalesService'
 
 const aviasalesService = new AviasalesService()
 
-export const fetchTickets = createAsyncThunk('tickets/fetchTickets', aviasalesService.getTickets)
+export const fetchTickets = createAsyncThunk('tickets/fetchTickets', async () => {
+  const res = await aviasalesService.getTickets()
+
+  return res
+})
+let ticketId = 0
 
 const initialState = {
-  tickets: [],
+  tickets: {},
   status: 'idle',
   error: null,
   shownTickets: 5,
@@ -28,12 +33,10 @@ export const ticketsListSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(fetchTickets.fulfilled, (state, action) => {
-        const newTickets = []
         action.payload.tickets.forEach((ticket) => {
-          console.log(ticket.id)
-          newTickets.push(ticket)
+          state.tickets[ticketId++] = ticket
         })
-        state.tickets = newTickets
+        state.stop = action.payload.stop
         state.status = 'iddle'
       })
   },

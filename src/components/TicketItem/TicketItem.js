@@ -51,6 +51,7 @@ export default class TicketItem extends React.Component {
 
   render() {
     const { price, carrier, segments } = this.props
+
     return (
       <Card
         hoverable
