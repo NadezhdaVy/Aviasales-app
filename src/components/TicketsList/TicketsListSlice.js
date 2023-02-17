@@ -6,9 +6,9 @@ const aviasalesService = new AviasalesService()
 
 export const fetchTickets = createAsyncThunk('tickets/fetchTickets', async () => {
   const res = await aviasalesService.getTickets()
-
   return res
 })
+
 let ticketId = 0
 
 const initialState = {

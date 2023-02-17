@@ -19,7 +19,9 @@ export default function TiketsList() {
   return (
     <>
       {loader}
+
       <List
+        locale={{ emptyText: 'Рейсов, подходящих под заданные фильтры, не найдено' }}
         className={classes.TicketsList}
         dataSource={toShow}
         renderItem={(id) => (

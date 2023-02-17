@@ -4,7 +4,7 @@
   box-sizing: border-box;
   padding: 0 1.5em;
   .button-container {
-   padding-top: 1em;
+    padding-top: 1em;
 
     .button {
       width: 100%;
@@ -14,11 +14,10 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-		
-		&:hover{
-      background-color: #359df1;
-	
-		}
+
+      &:hover {
+        background-color: #359df1;
+      }
     }
 
     .hidden {

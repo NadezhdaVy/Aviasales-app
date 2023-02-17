@@ -1,7 +1,22 @@
 .TicketsList {
+	
   .list-item {
     border: none;
-	 padding:  0;
-	 padding-top: 1em;
+    padding: 0;
+    padding-top: 1em;
   }
+.button-container {
+	background-color: aquamarine;
 }
+ 
+}
+.no-content {
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 2em;
+	margin-top: 2em;
+	background-color: transparent;
+	box-sizing: border-box;
+	background-color: white;
+	text-align: center;
+  }

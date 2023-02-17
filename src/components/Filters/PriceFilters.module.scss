@@ -1,10 +1,9 @@
 .PriceFilters {
-//  padding-left: 24px;
-//  padding-right: 24px;
+  //  padding-left: 24px;
+  //  padding-right: 24px;
   display: flex;
   justify-content: center;
   width: 100%;
-
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -18,7 +17,6 @@
     height: 50px;
     padding-top: 7px;
     overflow: hidden;
-	 
   }
 
   [class~='ant-radio-button-checked'] {
@@ -28,11 +26,10 @@
 
   [class~='ant-radio-button-wrapper']:first-child,
   [class~='ant-radio-button-wrapper']:last-child {
-	@media screen and (max-width: 768px) {
-		border-radius: 0;
-	 }
-	
- }
+    @media screen and (max-width: 768px) {
+      border-radius: 0;
+    }
+  }
 
   [class~='PriceFilters'] {
     padding: 24px;

@@ -9,7 +9,7 @@ import classes from './App.module.scss'
 export default function App() {
   return (
     <div className={classes.App}>
-      <div className={classes.logo} />
+      <header className={classes.logo} />
       <Row justify="center" align="top" gutter="0" className={classes.row}>
         <Col className={classes['order-col-first']} xxl={6} xl={6} lg={7} md={8} sm={24} xs={24}>
           <TransferFilters />
