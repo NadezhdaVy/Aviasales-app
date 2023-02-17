@@ -5,15 +5,16 @@ import { useSelector } from 'react-redux'
 import TicketItem from '../TicketItem'
 import Loader from '../Loader'
 
+import { selectFilteredTicketsIds } from './TicketsListSlice'
 import classes from './TicketsList.module.scss'
 
 export default function TiketsList() {
+  const ticketIds = useSelector(selectFilteredTicketsIds)
   const ticketsState = useSelector((state) => state.tickets)
-  const { tickets, shownTickets, status, stop } = ticketsState
+  const { shownTickets, stop } = ticketsState
 
-  const toShow = Object.values(tickets).slice(0, shownTickets)
+  const toShow = ticketIds.slice(0, shownTickets)
   const loader = stop === true ? null : <Loader />
-  // eslint-disable-next-line prettier/prettier
 
   return (
     <>
@@ -21,9 +22,9 @@ export default function TiketsList() {
       <List
         className={classes.TicketsList}
         dataSource={toShow}
-        renderItem={(ticket) => (
-          <List.Item className={classes['list-item']}>
-            <TicketItem status={status} price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
+        renderItem={(id) => (
+          <List.Item key={id} className={classes['list-item']}>
+            <TicketItem id={id} />
           </List.Item>
         )}
       />

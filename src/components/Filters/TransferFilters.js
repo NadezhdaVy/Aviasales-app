@@ -7,31 +7,30 @@ import classes from './TransferFilters.module.scss'
 
 function FiltersTransfer({ value: transfers, onChange }) {
   const renderFilters = transferFilters.map((item) => {
-    const checked = transfers.includes(item.name)
+    const checked = transfers.includes(item.count)
+
     const handleChange = () => {
       const changeType = checked ? 'removed' : 'added'
-      onChange(item.name, changeType)
+      onChange(item.count, changeType)
     }
 
     return (
-      <li key={item.name} className={classes.list__item}>
-        <div className={classes['form-check']}>
-          <input
-            onChange={handleChange}
-            checked={checked}
-            className={classes['check-input']}
-            type="checkbox"
-            id={item.name}
-          />
-          <label className={classes['check-label']} htmlFor={item.name}>
-            {item.label}
-          </label>
-        </div>
-      </li>
+      <div key={item.name} className={classes['check-item']}>
+        <input
+          onChange={handleChange}
+          checked={checked}
+          className={classes['check-input']}
+          type="checkbox"
+          id={item.count}
+        />
+        <label className={classes['check-label']} htmlFor={item.count}>
+          {item.label}
+        </label>
+      </div>
     )
   })
 
-  return <ul className={classes.list}>{renderFilters}</ul>
+  return <form className={classes['check-form']}>{renderFilters}</form>
 }
 
 function TransferFilters() {

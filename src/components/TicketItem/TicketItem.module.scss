@@ -1,4 +1,5 @@
 .TicketItem {
+	font-weight: 600;
   .head {
     display: flex;
     justify-content: space-between;
@@ -13,19 +14,26 @@
     min-height: 0;
     padding-top: 14px;
     font-size: 1.5rem;
+
+	 @media screen and (max-width: 430px){
+		padding: 5px 10px;
+
+	 }
   }
 
   [class~='ant-card-body'] {
     padding: 20px;
+
+	 @media screen and (max-width:430px) {
+		padding: 5px 10px;
+	 }
   }
 
   .description {
     [class~='ant-descriptions-item-label']::after {
       display: none;
     }
+ }
 
-    [class~='ant-descriptions-row'] > th {
-      padding: 0;
-    }
-  }
 }
+

@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const transferFilters = [
-  { name: 'all', label: 'Все' },
-  { name: 'no-transfers', label: 'Без пересадок' },
-  { name: '1transfer', label: '1 пересадка' },
-  { name: '2transfer', label: '2 пеpесадки' },
-  { name: '3transfer', label: '3 пеpесадки' },
+  { name: 'all', label: 'Все', count: 4 },
+  { name: 'no-transfers', label: 'Без пересадок', count: 0 },
+  { name: '1transfer', label: '1 пересадка', count: 1 },
+  { name: '2transfer', label: '2 пеpесадки', count: 2 },
+  { name: '3transfer', label: '3 пеpесадки', count: 3 },
 ]
 
 const initialState = {
@@ -26,21 +26,21 @@ export const filtersSlice = createSlice({
         const { transfers } = state
         switch (changeType) {
           case 'added': {
-            if (!transfers.includes(filterName) && filterName !== 'all') {
+            if (!transfers.includes(filterName) && filterName !== 4) {
               if (transfers.length === 3) {
-                transfers.push('all')
+                transfers.push(4)
               }
               transfers.push(filterName)
-            } else if (filterName === 'all') {
-              transfers.push(...transferFilters.map((el) => el.name))
+            } else if (filterName === 4) {
+              transfers.push(...transferFilters.map((el) => el.count))
             }
             break
           }
           case 'removed': {
-            if (filterName === 'all') {
+            if (filterName === 4) {
               transfers.length = 0
             }
-            state.transfers = transfers.filter((currName) => currName !== filterName && currName !== 'all')
+            state.transfers = transfers.filter((currName) => currName !== filterName && currName !== 4)
 
             break
           }

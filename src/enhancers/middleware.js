@@ -1,7 +1,7 @@
-const enhancerMiddleware = (store) => (next) => (action) => {
-  console.log('dispatching', action)
+const enhancerMiddleware = () => (next) => (action) => {
+  //  console.log('dispatching', action)
   const result = next(action)
-  console.log('next state', store.getState())
+  //  console.log('next state', store.getState())
   return result
 }
 
