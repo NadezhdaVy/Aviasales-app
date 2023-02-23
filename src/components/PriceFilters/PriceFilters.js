@@ -2,7 +2,8 @@ import React from 'react'
 import { Radio } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { priceFilterChanged } from './FiltersSlice'
+import { priceFilterChanged } from '../../redux/slices/FiltersSlice'
+
 import classes from './PriceFilters.module.scss'
 
 const filters = [

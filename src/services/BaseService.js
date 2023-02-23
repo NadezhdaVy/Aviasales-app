@@ -3,7 +3,7 @@ export default class BaseService {
 
   createUrl = (url, params) => {
     const newUrl = new URL(url, this.baseUrl)
-    newUrl.searchParams.append('api_key', this.apiKey)
+
     if (params) {
       params.forEach((element) => {
         newUrl.searchParams.append(Object.keys(element), Object.values(element))

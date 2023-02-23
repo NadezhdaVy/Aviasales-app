@@ -1,32 +1,13 @@
 import React from 'react'
 import { Card, Descriptions } from 'antd'
-import format from 'date-fns/format'
 import { useSelector } from 'react-redux'
+
+import { suffix, convertTime } from '../../utils'
 
 import classes from './TicketItem.module.scss'
 
 export default function TicketItem({ id }) {
   const ticket = useSelector((state) => state.tickets.tickets[id])
-
-  const convertTime = (date) => {
-    if (Number(date)) {
-      const minutes = Math.floor(date / 60)
-      const seconds = Math.round(date % 60)
-
-      return `${minutes}ч  ${seconds}м`
-    }
-    return format(new Date(date), 'hh : mm')
-  }
-
-  const suffix = (word, count) => {
-    if (count === 0) {
-      return `${word}ок`
-    }
-    if (count === 1) {
-      return `${word}ка`
-    }
-    return `${word}ки`
-  }
 
   const convertPrice = (price) => {
     const numberToString = String(price)

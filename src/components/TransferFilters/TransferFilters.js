@@ -2,7 +2,8 @@ import React from 'react'
 import { Card } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { transferFilters, transferFilterChanged } from './FiltersSlice'
+import { transferFilters, transferFilterChanged } from '../../redux/slices/FiltersSlice'
+
 import classes from './TransferFilters.module.scss'
 
 function FiltersTransfer({ value: transfers, onChange }) {

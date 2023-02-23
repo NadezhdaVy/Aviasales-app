@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'antd'
 
-import TransferFilters from '../Filters/TransferFilters'
+import TransferFilters from '../TransferFilters/TransferFilters'
 import MainContent from '../MainContent'
 
 import classes from './App.module.scss'

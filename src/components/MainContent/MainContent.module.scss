@@ -3,25 +3,5 @@
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0 1.5em;
-  .button-container {
-    padding-top: 1em;
-
-    .button {
-      width: 100%;
-      padding: 24px;
-      background-color: #2196f3;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #359df1;
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-  }
 }
+

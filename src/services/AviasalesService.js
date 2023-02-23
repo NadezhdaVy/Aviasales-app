@@ -21,13 +21,12 @@ export default class AviasalesService extends BaseService {
     const url = this.createUrl('tickets', [this.currId])
     const res = await fetch(url)
     if (!res.ok) {
-      if (res.status === 500) {
-        return this.getTickets()
-      }
-      throw new Error('Something is wrong')
-    }
-    const body = res.json()
+      const error = new Error(res.statusText)
+      error.response = res
 
+      throw error
+    }
+    const body = await res.json()
     return body
   }
 }
