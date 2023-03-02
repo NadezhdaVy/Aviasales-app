@@ -1,12 +1,12 @@
 import { List } from 'antd'
 import { useSelector } from 'react-redux'
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 
+import selectFilteredTickets from '../../utils/filters'
 import LoadMore from '../LoadMore'
 import ErrorIndicator from '../ErrorIndicator'
 import TicketItem from '../TicketItem'
 import Loader from '../Loader'
-import { selectFilteredIds } from '../../redux/selectors/selectors'
 
 import classes from './TicketsList.module.scss'
 
@@ -17,17 +17,19 @@ export default function TiketsList() {
     setShownTickets((count) => count + 5)
   }
 
-  const ticketsState = useSelector((state) => state.tickets)
-  const { stop, error, status } = ticketsState
-  const ticketIds = useSelector(selectFilteredIds)
-  const toShow = ticketIds.slice(0, shownTickets)
+  const filtersState = useSelector((state) => state.filters)
+  const { stop, error, status, tickets } = useSelector((state) => state.tickets)
+
+  const selectTicketsByFilter = useMemo(() => selectFilteredTickets(tickets, filtersState), [tickets, filtersState])
+  const toShow = selectTicketsByFilter.slice(0, shownTickets)
+
   const loader = stop || (toShow.length === 0 && status !== 'loading') ? null : <Loader />
   const content = (
     <Content
       toShow={toShow}
       status={status}
       showMoreTickets={showMoreTickets}
-      ticketsAmount={ticketIds.length}
+      ticketsAmount={selectTicketsByFilter.length}
       shownTickets={shownTickets}
     />
   )
@@ -43,6 +45,7 @@ export default function TiketsList() {
 }
 
 function Content({ toShow, status, showMoreTickets, ticketsAmount, shownTickets }) {
+  const { tickets } = useSelector((state) => state.tickets)
   return (
     <List
       loadMore={
@@ -53,7 +56,15 @@ function Content({ toShow, status, showMoreTickets, ticketsAmount, shownTickets 
       className={classes.TicketsList}
       dataSource={toShow}
       renderItem={(id) => (
-        <List.Item key={id} className={classes['list-item']}>
+        <List.Item
+          key={
+            tickets[id].price +
+            tickets[id].carrier +
+            tickets[id].segments[0].duration +
+            tickets[id].segments[1].duration
+          }
+          className={classes['list-item']}
+        >
           <TicketItem id={id} />
         </List.Item>
       )}

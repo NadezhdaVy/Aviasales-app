@@ -20,11 +20,7 @@ export const ticketsListSlice = createSlice({
         //  state.status = 'loading'
       })
       .addCase(fetchTickets.fulfilled, (state, action) => {
-        action.payload.tickets.forEach((ticket) => {
-          const ticketId = ticket.price + ticket.carrier + Date.now()
-          state.tickets[ticketId] = ticket
-        })
-
+        state.tickets = { ...state.tickets, ...action.payload.tickets }
         state.stop = action.payload.stop
         state.status = 'idle'
         state.error = null
