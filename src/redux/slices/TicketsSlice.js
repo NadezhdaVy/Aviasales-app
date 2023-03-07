@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import fetchTickets from '../actions/fetchTickets'
 
 const initialState = {
-  tickets: {},
+  tickets: [],
   status: 'loading',
   error: null,
   stop: false,
@@ -20,7 +20,7 @@ export const ticketsListSlice = createSlice({
         //  state.status = 'loading'
       })
       .addCase(fetchTickets.fulfilled, (state, action) => {
-        state.tickets = { ...state.tickets, ...action.payload.tickets }
+        state.tickets.push(...action.payload.tickets)
         state.stop = action.payload.stop
         state.status = 'idle'
         state.error = null

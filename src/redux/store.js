@@ -8,4 +8,9 @@ export default configureStore({
     filters: filtersReducer,
     tickets: TicketsListReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: { warnAfter: 128 },
+      serializableCheck: { warnAfter: 128 },
+    }),
 })

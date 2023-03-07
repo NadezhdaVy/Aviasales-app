@@ -1,14 +1,11 @@
 import React from 'react'
 import { Card, Descriptions } from 'antd'
-import { useSelector } from 'react-redux'
 
 import { suffix, convertTime } from '../../utils'
 
 import classes from './TicketItem.module.scss'
 
-export default function TicketItem({ id }) {
-  const ticket = useSelector((state) => state.tickets.tickets[id])
-
+export default function TicketItem({ ticket }) {
   const convertPrice = (price) => {
     const numberToString = String(price)
     const first = numberToString.slice(0, 2)

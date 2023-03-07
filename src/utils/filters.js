@@ -2,24 +2,22 @@ const selectFilteredTickets = (state, filters) => {
   const { price, transfers } = filters
 
   if (price === 'cheap') {
-    const sorted = Object.entries(state).sort((a, b) => a[1].price - b[1].price)
+    const sorted = Object.values(state).sort((a, b) => a.price - b.price)
     if (transfers.length > 0) {
-      return sorted.filter((el) => transfers.includes(el[1].segments[0].stops.length)).map((el) => el[0])
+      return sorted.filter((el) => transfers.includes(el.segments[0].stops.length))
     }
-    return sorted.map((el) => el[0])
+    return sorted
   }
   if (price === 'fast') {
-    const sorted = Object.entries(state).sort((a, b) => a[1].segments[0].duration - b[1].segments[0].duration)
+    const sorted = Object.values(state).sort((a, b) => a.segments[0].duration - b.segments[0].duration)
     if (transfers.length > 0) {
-      return sorted.filter((el) => transfers.includes(el[1].segments[0].stops.length)).map((el) => el[0])
+      return sorted.filter((el) => transfers.includes(el.segments[0].stops.length))
     }
-    return sorted.map((el) => el[0])
+    return sorted
   }
   if (transfers.length > 0) {
-    return Object.entries(state)
-      .filter((el) => transfers.includes(el[1].segments[0].stops.length))
-      .map((el) => el[0])
+    return Object.values(state).filter((el) => transfers.includes(el.segments[0].stops.length))
   }
-  return Object.keys(state)
+  return state
 }
 export default selectFilteredTickets

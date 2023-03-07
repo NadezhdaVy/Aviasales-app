@@ -8,6 +8,22 @@ import App from './components/App'
 import fetchTickets from './redux/actions/fetchTickets'
 
 store.dispatch(fetchTickets())
+// const aviasalesService = new AviasalesService()
+// const getAll = () => {
+//  aviasalesService.getTickets().then((res) => {
+//    if (!res.stop) {
+//      getAll()
+
+//      store.dispatch(fetchTickets())
+//    }
+
+//    return res
+//  })
+// }
+
+// useEffect(() => {
+//  getAll()
+// }, [])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
