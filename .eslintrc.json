@@ -59,6 +59,7 @@
     "no-plusplus": 0,
     "no-param-reassign": 0,
     "no-console": "off",
+	 "@typescript-eslint/no-unused-vars": "error",
     "import/order": [
       2,
       {
