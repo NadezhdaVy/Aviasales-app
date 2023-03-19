@@ -1,2 +1,2 @@
-export const button: string
+export const Button: string
 export const PriceFilters: string

@@ -19,7 +19,7 @@ function TicketItem({ ticket }: Props) {
   }
 
   const renderTicket = (tick: Segment) => (
-    <Descriptions column={{ xs: 7 }} className={classes.Descriptions} layout="vertical" size="small">
+    <Descriptions column={{ xs: 4 }} className={classes.Descriptions} layout="vertical" size="small">
       <Descriptions.Item span={1} className={classes.Description} label={`${tick.origin}-${tick.destination}`}>
         {convertTime(tick.date)}
       </Descriptions.Item>

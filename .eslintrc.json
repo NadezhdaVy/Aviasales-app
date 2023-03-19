@@ -3,24 +3,6 @@
     "browser": true,
     "es2021": true
   },
-//  "overrides": [
-//	{ 
-//		"env": { "browser": true, "es2021": true},
-//		"files": ["**/*.ts", "**/*.tsx"],
-//		"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-//		"parser": "@typescript-eslint/parser",
-//		"plugins": ["@typescript-eslint"],
-//		"parserOptions": {
-//			"ecmaFeatures": { "jsx": true },
-//			"ecmaVersion": "latest",
-//			"sourceType": "module",
-//			"project": "./tsconfig.json"
-//		 },
-//		 "rules": {
-//			"@typescript-eslint/no-non-null-assertion": "error"
-//		 }
-//	}
-//  ],
   "ignorePatterns": ["node_modules", "dist", "build"],
   "extends": ["plugin:react/recommended","eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",

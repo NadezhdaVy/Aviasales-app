@@ -31,7 +31,7 @@ function PriceFilters() {
         onClick={() => onPriceChanged(value)}
         type="button"
         value={name}
-        className={classes.button}
+        className={classes.Button}
       >
         {label.toUpperCase()}
       </Radio.Button>
