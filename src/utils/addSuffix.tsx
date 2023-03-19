@@ -1,4 +1,4 @@
-const suffix = (word, count) => {
+const suffix = (word: string, count: number) => {
   if (count === 0) {
     return `${word}ок`
   }

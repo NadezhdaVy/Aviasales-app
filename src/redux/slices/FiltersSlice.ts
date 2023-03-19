@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const transferFilters = [
   { name: 'all', label: 'Все', count: 4 },
@@ -8,7 +8,12 @@ export const transferFilters = [
   { name: '3transfer', label: '3 пеpесадки', count: 3 },
 ]
 
-const initialState = {
+export interface FiltersState {
+  transfers: number[]
+  price: string
+}
+
+const initialState: FiltersState = {
   transfers: [],
   price: 'cheap',
 }
@@ -17,11 +22,11 @@ export const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    priceFilterChanged(state, action) {
+    priceFilterChanged(state, action: PayloadAction<string>) {
       state.price = action.payload
     },
     transferFilterChanged: {
-      reducer(state, action) {
+      reducer(state, action: PayloadAction<{ filterName: number; changeType: string }>) {
         const { filterName, changeType } = action.payload
         const { transfers } = state
         switch (changeType) {
@@ -50,7 +55,7 @@ export const filtersSlice = createSlice({
         }
         return state
       },
-      prepare(filterName, changeType) {
+      prepare(filterName: number, changeType: string) {
         return {
           payload: { filterName, changeType },
         }

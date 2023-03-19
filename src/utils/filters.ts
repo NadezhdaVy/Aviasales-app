@@ -1,4 +1,7 @@
-const selectFilteredTickets = (state, filters) => {
+import { FiltersState } from '../redux/slices/FiltersSlice'
+import { TicketInterface } from '../ts/interfaces'
+
+const selectFilteredTickets = (state: TicketInterface[], filters: FiltersState) => {
   const { price, transfers } = filters
 
   if (price === 'cheap') {

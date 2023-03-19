@@ -1,10 +1,10 @@
 .TicketItem {
   font-weight: 600;
-  .head {
+  .Head {
     display: flex;
     justify-content: space-between;
 
-    .head-price {
+    .HeadPrice {
       color: #2196f3;
     }
   }
@@ -28,7 +28,7 @@
     }
   }
 
-  .description {
+  .Description {
     [class~='ant-descriptions-item-label']::after {
       display: none;
     }

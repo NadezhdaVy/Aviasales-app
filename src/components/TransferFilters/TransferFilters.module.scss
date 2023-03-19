@@ -2,8 +2,8 @@
   [class~='ant-card-body'] {
     padding: 5px;
   }
-  .check-form {
-    .check-item {
+  .CheckForm {
+    .CheckItem {
       padding: 0.6em;
       margin: 5.5px 0;
       padding-left: 2em;
@@ -13,17 +13,17 @@
         background-color: #f1fcff;
       }
 
-      .check-label {
+      .CheckLabel {
         cursor: pointer;
       }
 
-      .check-input {
+      .CheckInput {
         opacity: 0;
         height: 0;
         position: relative;
         cursor: pointer;
 
-        & + .check-label::before {
+        & + .CheckLabel::before {
           content: '';
           width: 20px;
           height: 20px;
@@ -32,7 +32,7 @@
           background-image: url('../../icons/Checkbox.svg');
         }
 
-        &:checked + .check-label::before {
+        &:checked + .CheckLabel::before {
           content: '';
           width: 20px;
           height: 20px;

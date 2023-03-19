@@ -1,17 +1,17 @@
 import React from 'react'
 import { Card } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
 
+import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { transferFilters, transferFilterChanged } from '../../redux/slices/FiltersSlice'
 
 import classes from './TransferFilters.module.scss'
 
 function TransferFilters() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
-  const { transfers } = useSelector((state) => state.filters)
+  const { transfers } = useAppSelector((state) => state.filters)
 
-  const onFilterChange = (filterName, changeType) => {
+  const onFilterChange = (filterName: number, changeType: 'removed' | 'added') => {
     dispatch(transferFilterChanged(filterName, changeType))
   }
 
@@ -21,15 +21,15 @@ function TransferFilters() {
     const changeType = checked ? 'removed' : 'added'
 
     return (
-      <div key={item.name} className={classes['check-item']}>
+      <div key={item.name} className={classes.CheckItem}>
         <input
           onChange={() => onFilterChange(item.count, changeType)}
           checked={checked}
-          className={classes['check-input']}
+          className={classes.CheckInput}
           type="checkbox"
-          id={item.count}
+          id={String(item.count)}
         />
-        <label className={classes['check-label']} htmlFor={item.count}>
+        <label className={classes.CheckLabel} htmlFor={String(item.count)}>
           {item.label}
         </label>
       </div>
@@ -38,7 +38,7 @@ function TransferFilters() {
 
   return (
     <Card title="Количество пересадок" className={classes.TransferFilters}>
-      <form className={classes['check-form']}>{renderFilters}</form>
+      <form className={classes.CheckForm}>{renderFilters}</form>
     </Card>
   )
 }

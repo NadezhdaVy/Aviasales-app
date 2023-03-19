@@ -1,7 +1,8 @@
 import { List } from 'antd'
-import { useSelector } from 'react-redux'
-import React, { useState, useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 
+import { TicketInterface } from '../../ts/interfaces'
+import { useAppSelector } from '../../redux/store'
 import selectFilteredTickets from '../../utils/filters'
 import LoadMore from '../LoadMore'
 import ErrorIndicator from '../ErrorIndicator'
@@ -17,8 +18,8 @@ export default function TiketsList() {
     setShownTickets((count) => count + 5)
   }
 
-  const filtersState = useSelector((state) => state.filters)
-  const { stop, error, status, tickets } = useSelector((state) => state.tickets)
+  const filtersState = useAppSelector((state) => state.filters)
+  const { stop, error, status, tickets } = useAppSelector((state) => state.tickets)
 
   const selectTicketsByFilter = useMemo(() => selectFilteredTickets(tickets, filtersState), [tickets, filtersState])
 
@@ -44,10 +45,10 @@ export default function TiketsList() {
         locale={{ emptyText: 'Рейсов, подходящих под заданные фильтры, не найдено' }}
         className={classes.TicketsList}
         dataSource={toShow}
-        renderItem={(ticket) => (
+        renderItem={(ticket: TicketInterface) => (
           <List.Item
             key={ticket.price + ticket.carrier + ticket.segments[0].duration + ticket.segments[1].duration}
-            className={classes['list-item']}
+            className={classes.ListItem}
           >
             <TicketItem ticket={ticket} />
           </List.Item>
