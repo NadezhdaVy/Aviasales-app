@@ -4,17 +4,23 @@
     "es2021": true
   },
   "ignorePatterns": ["node_modules", "dist", "build"],
-  "extends": ["plugin:react/recommended","eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-				"ecmaFeatures": { "jsx": true },
-				"ecmaVersion": "latest",
-				"sourceType": "module",
-				"project": "./tsconfig.json"
-			 },
-  "plugins": ["react","@typescript-eslint", "prettier"],
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-	"import/extensions": [
+    "import/extensions": [
       "error",
       "ignorePackages",
       {
@@ -23,14 +29,14 @@
         "ts": "never",
         "tsx": "never"
       }
-   ],
+    ],
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
     "react/prop-types": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
-	 "import/prefer-default-export": "off",
+    "import/prefer-default-export": "off",
     "linebreak-style": [0, "unix"],
     "react/forbid-prop-types": 0,
     "react/destructuring-assignment": 0,
@@ -41,7 +47,7 @@
     "no-plusplus": 0,
     "no-param-reassign": 0,
     "no-console": "off",
-	 "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "error",
     "import/order": [
       2,
       {

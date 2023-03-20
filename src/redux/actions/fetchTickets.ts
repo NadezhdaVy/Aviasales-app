@@ -8,7 +8,11 @@ import BaseService from '../../services/BaseService'
 const aviasalesService = new AviasalesService()
 const baseService = new BaseService()
 
-const fetchTickets = createAsyncThunk<ResponseAllTickets, undefined, { dispatch: AppDispatch; rejectValue: string }>(
+type MyError = {
+  message: string
+}
+
+const fetchTickets = createAsyncThunk<ResponseAllTickets, undefined, { dispatch: AppDispatch; rejectValue: MyError }>(
   'tickets/fetchTickets',
   async (_, { dispatch, rejectWithValue }) => {
     if (!aviasalesService.currId) {
@@ -20,10 +24,9 @@ const fetchTickets = createAsyncThunk<ResponseAllTickets, undefined, { dispatch:
     const response = await fetch(url)
     if (!response.ok) {
       if (response.status === 500) {
-        console.log(response)
         dispatch(fetchTickets())
       }
-      return rejectWithValue(response.statusText)
+      return rejectWithValue({ message: response.statusText })
     }
     const body = await response.json()
 

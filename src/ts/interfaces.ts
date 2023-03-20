@@ -18,5 +18,5 @@ export interface TicketInterface {
   carrier: string
   // Массив перелётов.
   // В тестовом задании это всегда поиск "туда-обратно" значит состоит из двух элементов
-  segments: Array<Segment>
+  segments: [Segment, Segment]
 }

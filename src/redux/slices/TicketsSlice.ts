@@ -40,10 +40,15 @@ export const ticketsListSlice = createSlice({
         state.error = null
       })
       .addCase(fetchTickets.rejected, (state, action) => {
-        state.error = typeof action.error === 'string' ? action.error : 'oops'
+        if (action.payload) {
+          state.error = action.payload.message
+        } else if (action.error.message) {
+          state.error = action.error.message
+        } else {
+          state.error = 'error'
+        }
 
         state.status = 'idle'
-        console.log(action)
       })
   },
 })
