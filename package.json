@@ -14,7 +14,6 @@
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "sass": "^1.58.0",
-    "typescript": "^5.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -71,6 +70,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.1",
     "prettier": "2.8.4",
-    "typed-scss-modules": "^7.1.0"
+    "typed-scss-modules": "^7.1.0",
+    "typescript": "^4.9.5"
   }
 }
